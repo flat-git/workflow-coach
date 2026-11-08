@@ -1,0 +1,15 @@
+{
+  "name": "workflow-graph-poc",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Throwaway proof: source-linked workflow diagram, questions and in-diagram token simulation",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "bpmn-js": "18.30.0",
+    "bpmn-js-token-simulation": "1.1.0",
+    "esbuild": "0.28.2"
+  }
+}

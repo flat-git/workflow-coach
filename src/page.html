@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>隐患上报 · 流程共创小样</title>
+  <style>__APP_CSS__</style>
+</head>
+<body>
+  <header class="app-header">
+    <a class="wordmark" href="#workspace" aria-label="流程共创，跳到流程图"><span class="wordmark-icon" aria-hidden="true">↳</span> 流程共创<span class="wordmark-en"> / PROCESS WALKTHROUGH</span></a>
+    <div class="header-meta"><span class="prototype-tag">交互小样</span><span id="revision-label">第 1 版</span></div>
+  </header>
+
+  <div class="demo-banner"><span class="banner-dot" aria-hidden="true"></span><p><strong>这是一份演示草稿。</strong> 流程根据 AI 拟定的示例文字整理，部门实际规则尚未提供。图上的建议与待定项，都可以继续修改。</p><button type="button" id="source-toggle" class="text-button" aria-controls="source-panel" aria-expanded="false">查看示例材料</button></div>
+
+  <main id="workspace" class="workspace">
+    <section class="work-heading" aria-labelledby="flow-title">
+      <div><p class="eyebrow">在图里走一遍，把流程想清楚</p><h1 id="flow-title">隐患上报 · 流程共创</h1><p id="flow-subtitle" class="subtitle">点击环节查看依据与修改意见，试走时选择下一步，检查能否形成闭环。</p></div>
+      <div class="heading-note"><span class="status-square" aria-hidden="true"></span><span>需要你决定 <strong id="open-count">1</strong> 处</span></div>
+    </section>
+
+    <section id="source-panel" class="source-panel" aria-labelledby="source-heading" hidden>
+      <div class="section-heading"><h2 id="source-heading">这张图从哪里来</h2><span class="label label-suggestion">AI 拟定的演示材料</span></div>
+      <p class="section-intro">你目前提出了“隐患上报系统”的方向。以下文字用于验证交互方式，不代表你们的现行制度；每个节点可以查看对应内容。</p>
+      <pre id="source-text" class="source-text"></pre>
+    </section>
+
+    <div class="work-layout">
+      <section class="diagram-workspace" aria-label="可点击的业务流程图">
+        <div class="diagram-toolbar">
+          <div class="toolbar-actions"><button type="button" id="start-run" class="button button-primary"><span aria-hidden="true">▶</span> 开始试走</button><button type="button" id="reset-run" class="button button-secondary">重新试走</button><button type="button" id="fit-view" class="button button-quiet">适应画布</button><button type="button" id="zoom-out" class="button button-secondary button-zoom" aria-label="缩小流程图" title="缩小流程图">−</button><button type="button" id="zoom-in" class="button button-secondary button-zoom" aria-label="放大流程图" title="放大流程图">+</button></div>
+          <span class="toolbar-tip">点击图中的环节与分支</span>
+        </div>
+        <div class="run-strip" aria-live="polite"><span class="run-indicator" aria-hidden="true"></span><span class="run-caption">当前环节</span><strong id="current-step">尚未开始</strong><span id="run-status" role="status">先看全图，或开始试走一件事。</span></div>
+        <div class="canvas-wrap"><div id="canvas" role="region" aria-label="流程图画布，可平移与缩放"></div><div class="canvas-hint" aria-hidden="true">拖动画布 · 缩放查看细节</div></div>
+        <div class="diagram-footer"><div class="legend"><span><i class="legend-mark current"></i>当前步骤</span><span><i class="legend-mark visited"></i>已走过</span><span><i class="legend-mark uncertain"></i>待确定</span></div><span class="legend-note">点击任务继续；菱形处选择分支。</span></div>
+        <details class="trace-panel" open><summary><span>本次怎么走的</span><span class="summary-note">试走记录不是业务认可</span></summary><ol id="path-log" class="path-log"><li class="empty-state">尚未产生路径。开始试走后，这里会记录经过的环节。</li></ol></details>
+      </section>
+
+      <aside class="inspector" aria-label="流程节点详情、待定问题与修改意见">
+        <section id="branch-panel" class="branch-panel" aria-labelledby="branch-heading" hidden><div class="panel-eyebrow"><span class="branch-symbol" aria-hidden="true">◇</span><span>这次试走，选择一个分支</span></div><h2 id="branch-heading">选择这次验收的结果</h2><p>这只决定本次演示如何流转，不会改动流程设计。</p><div class="branch-actions"><button type="button" id="branch-pass" class="button button-primary button-block">验收通过，继续关闭</button><button type="button" id="branch-return" class="button button-secondary button-block">验收不通过，沿退回线走</button></div></section>
+        <section id="question-panel" class="question-panel" aria-labelledby="question-title">
+          <div class="panel-eyebrow"><span class="question-dot" aria-hidden="true">?</span><span>图上有一处需要你决定</span></div>
+          <h2 id="question-title">这一步，应该怎么走？</h2>
+          <p id="question-context" class="question-context">点击标记为待确定的节点或连线，查看本轮问题。</p>
+          <fieldset id="question-options" class="question-options" aria-label="本轮问题的选项"></fieldset>
+          <button type="button" id="question-apply" class="button button-primary button-block">本地演示：应用这项流程设计</button>
+          <p class="question-footnote">小样会在本地演示这次改图。页面不会自动调用 AI；你可以把完整反馈复制回对话。</p>
+          <p id="question-result" class="inline-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="node-panel" aria-labelledby="node-title">
+          <div class="inspector-heading"><span class="panel-label">你正在查看</span><span id="node-kind" class="label">尚未选择</span></div>
+          <h2 id="node-title">点一个环节看看</h2>
+          <dl class="node-facts"><div><dt>谁来做</dt><dd id="node-owner">点击节点后显示</dd></div><div><dt>内容依据</dt><dd id="node-evidence">选择图上的节点或连线，可以查看来源与当前理解。</dd></div></dl>
+          <label class="field-label" for="node-note">这一步哪里需要改？</label><textarea id="node-note" rows="3" placeholder="例如：应该先由班组接收；这条退回线应回到派单。"></textarea><button type="button" id="save-note" class="button button-secondary button-block">记下这条修改意见</button>
+          <p class="field-hint">意见会带上对应的节点或连线，随完整反馈一起复制。</p>
+        </section>
+
+        <details class="sidebar-details"><summary>仍待确定的地方</summary><ul id="issue-list" class="issue-list"><li>实际负责人和业务规则仍待确认。</li></ul></details>
+        <details class="sidebar-details"><summary>已记下的修改意见</summary><ul id="notes-list" class="notes-list"><li class="empty-state">还没有修改意见。</li></ul></details>
+      </aside>
+    </div>
+
+    <section class="review-footer" aria-label="成果确认与反馈">
+      <div class="review-main"><div class="review-title"><span class="review-symbol" aria-hidden="true">✓</span><div><h2>试走之后，再确认这一版</h2><p>检查正常路径、退回路径与结束条件；你仍可以保留未确定的事项。</p></div></div><label class="approval-label"><input type="checkbox" id="approval-checkbox"><span>我已检查本版的试走结果，认可这份演示流程。</span></label><button type="button" id="approve-flow" class="button button-secondary">确认本版试走结果</button><p id="approval-status" class="inline-status" role="status" aria-live="polite"></p></div>
+      <div class="feedback-main"><span class="panel-label">把修改带回下一轮</span><h2>复制反馈，继续和 AI 完善</h2><p>包含本轮选择、对应环节的意见和试走路径。</p><button type="button" id="copy-feedback" class="button button-primary">复制完整反馈 <span aria-hidden="true">↗</span></button><p id="copy-status" class="inline-status" role="status" aria-live="polite"></p></div>
+      <details id="feedback-details" class="feedback-details"><summary>查看反馈原文 / 手动复制</summary><label class="sr-only" for="feedback-output">完整反馈原文</label><textarea id="feedback-output" readonly spellcheck="false" rows="10"></textarea></details>
+    </section>
+    <footer class="page-footer"><span>流程共创 · 可点击流程图验证小样</span><span>示例材料 · 本地试走 · 反馈需复制回 AI</span></footer>
+  </main>
+  <script>__APP_JS__</script>
+</body>
+</html>

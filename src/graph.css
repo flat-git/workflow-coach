@@ -1,0 +1,29 @@
+.bts-toggle-mode,.bts-palette,.bts-set-animation-speed,.bts-scopes,.bts-log,.bts-notifications,.bts-context-pad{display:none!important}
+#canvas .bjs-container.simulation .djs-overlay-workflow-issue{display:block!important}
+#canvas .bjs-container.simulation .djs-container{box-shadow:none!important}
+.wf-issue-badge{padding:3px 8px;white-space:nowrap;font:11px "PingFang SC","Microsoft YaHei",sans-serif;color:#92632d;background:#fff2d9;border:1px solid #e4bf7b;border-radius:5px;cursor:pointer;min-height:24px}
+.djs-element{cursor:pointer}
+.djs-shape .djs-visual>rect,.djs-shape .djs-visual>circle,.djs-shape .djs-visual>polygon{fill:#fffefa!important;stroke:#67857f!important}
+.djs-label{fill:#203f3c!important;font-family:"PingFang SC","Microsoft YaHei",sans-serif!important}
+.djs-connection .djs-visual>path{stroke:#81928d!important;stroke-width:1.7!important}
+.djs-element.wf-open .djs-visual>rect,.djs-element.wf-open .djs-visual>polygon{fill:#fff2d8!important;stroke:#bd8334!important;stroke-dasharray:5 3}
+.djs-connection.wf-open .djs-visual>path{stroke:#bd8334!important;stroke-dasharray:6 4}
+.djs-element.wf-chosen .djs-visual>polygon{fill:#eef4e3!important;stroke:#688d43!important}
+.djs-connection.wf-chosen .djs-visual>path{stroke:#688d43!important}
+.djs-element.wf-visited .djs-visual>rect,.djs-element.wf-visited .djs-visual>circle{fill:#edf3ed!important;stroke:#547c71!important}
+.djs-connection.wf-visited .djs-visual>path{stroke:#267e6e!important;stroke-width:3.5!important}
+.djs-element.wf-current .djs-visual>rect,.djs-element.wf-current .djs-visual>circle{fill:#d9ede5!important;stroke:#12695b!important;stroke-width:3.5!important}
+.djs-element.wf-selected .djs-outline{stroke:#e2ac54!important;stroke-width:2!important;visibility:visible!important}
+.bts-token-count{border-color:#12695b!important;background:#e5f2de!important;color:#145e51!important}
+#canvas .bjs-powered-by{right:12px!important;bottom:10px!important;transform:scale(.8);transform-origin:bottom right}
+#canvas .djs-container svg{outline:none}
+.design-option{display:flex;align-items:flex-start;gap:9px;padding:11px 12px;border:1px solid var(--line,#dce3dc);border-radius:8px;margin:8px 0;background:#fff}
+.design-option:has(input:checked){border-color:#4f8c79;background:#f0f6ee}
+.design-option input{width:15px;min-width:15px;margin:4px 0 0;accent-color:#216f5e}
+.design-option strong{display:block;font-size:12px;line-height:1.6}
+.design-option small{display:block;font-size:11px;line-height:1.65;color:#6f7c76;margin-top:4px}
+#node-evidence p{font-size:12px;line-height:1.75;margin:8px 0;color:#64766d}
+#issue-list{display:grid;gap:8px}#issue-list button{font:inherit;font-size:12px;text-align:left;background:#fff9ed;border:1px solid #ead9b9;border-radius:6px;padding:9px 10px;color:#785c31;cursor:pointer}
+#path-log{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:7px}#path-log li{display:flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid #d9e5db;background:#f4f8f0;border-radius:6px;font-size:11px}#path-log li span{font:10px ui-monospace,monospace;color:#8e9e92}#path-log strong{font-weight:500}
+[hidden]{display:none!important}
+@media(max-width:600px){.wf-issue-badge{font-size:11px;padding:2px 6px}}
